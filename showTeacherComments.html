@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>View Professors</title>
+	
+		<!--css-->
+		
+		      <!--<link rel="stylesheet" href="css/bootstrap.min.css">-->
+              <!-- Material Design Bootstrap -->
+              <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.0/css/bootstrap.min.css" integrity="sha384-SI27wrMjH3ZZ89r4o+fGIJtnzkAnFs3E4qz9DIYioCQ5l9Rd/7UAa8DHcaL8jkWt" crossorigin="anonymous">
+
+              <link rel="stylesheet" href="css/mdb.min.css">
+
+		
+		<!--<link href="https://fonts.googleapis.com/css?family=Indie+Flower&display=swap" rel="stylesheet">-->
+		<link rel="stylesheet" href="css/style.css" type="text/css"/>
+		<link rel="icon" href="Images/favicon.ico" type="image/x-icon">
+		<link rel="stylesheet" href="css/slider.css" type="text/css"/>
+		
+
+		<!--our JS-->
+		
+		<script src="JS/code.js"></script>
+		<!--<script src="JS/components.js"></script>-->
+		
+		<!--boostrap-->
+		
+		<!--<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.0/css/bootstrap.min.css" integrity="sha384-SI27wrMjH3ZZ89r4o+fGIJtnzkAnFs3E4qz9DIYioCQ5l9Rd/7UAa8DHcaL8jkWt" crossorigin="anonymous">-->
+        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.0/js/bootstrap.min.js" integrity="sha384-3qaqj0lc6sV/qpzrc1N5DC6i1VRn/HyX4qdPaiEFbn54VjQBEU341pvjz7Dv3n6P" crossorigin="anonymous"></script>
+
+</head>
+<body>
+    <br>
+    <br>
+ <script>
+//             // When the user clicks on <div>, open the popup
+//             function myFunction() {
+//               var popup = document.getElementById("myPopup");
+//               popup.classList.toggle("show");
+//             }
+       </script>
+    <!--<div class="popup" onclick="myFunction()">Click me!-->
+    <!--      <span class="popuptext" id="myPopup">Popup text...</span>-->
+    <!--     </div>-->
+        
+        
+        <!--NAVIGATION BAR-->
+        
+        <ul class="nav nav-tabs">
+          <li class="nav-item">
+            <a class="nav-link active" href="teachers.html">Professors</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="showTeacherComments.html">Comments</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="graphs.html">Show Ratings</a>
+          </li>
+  <!--<li class="nav-item">-->
+  <!--  <a class="nav-link" href="#!">Link</a>-->
+  <!--</li>-->
+ 
+        </ul>
+        
+        <br>
+        <br>
+        
+        <!--HIDE OR SHOW BUTTONS-->
+        
+        <script>
+            function hideJumbooo()
+            {
+                var show = document.getElementById("jumbooo")
+                show.style.visibility = "hidden"
+                show.style.display = "none"
+            }
+            
+            function showJumbooo()
+            {
+                var show = document.getElementById("jumbooo")
+                show.style.visibility = "visible"
+                show.style.display = "block"
+            }
+            
+
+        </script>
+        
+                    
+                    
+        <div class="input-group" id="hideorshowbuttons">
+          <div class="input-group-prepend">
+            <button class="btn btn-outline-success" type="button" onclick="showJumbooo();">Show</button>
+          </div>
+          
+          <div class="input-group-append">
+            <button class="btn btn-outline-success" type="button" onclick="hideJumbooo();">Hide</button>
+          </div>
+        </div>
+    
+        
+        <!--CONFUSION CARD-->
+        
+        <div class="card" id="whatsthis">
+          <div class="card-header">
+            What's this?
+          </div>
+          <div class="card-body">
+            <blockquote class="card-blockquote">
+              <p>After searching you will see a name and a list of comments. 10 comments
+              at a time, sorted by most recent. Click next to view more.</p>
+              <!--<footer>-->
+              <!--  <cite title="Source Title">TradeMyProfessor</cite>-->
+              <!--</footer>-->
+            </blockquote>
+          </div>
+        </div>
+        
+        <script>
+            var card = document.getElementById("whatsthis")
+            card.style.height = "200 px"
+            card.style.width = "30%"
+            card.style.position = "relative"
+            card.style.left = "300px"
+            card.style.visibility = "hidden"
+            card.style.display = "none"
+
+        </script>
+        
+        <div class="jumbotron" id="jumbooo">
+  <!--<h1 class="display-5">Show me the comments!</h1>-->
+  <p class="lead">Let's see what people are saying about your professor.</p>
+  <hr class="my-4">
+  
+  <p class="lead">
+   
+  </p>
+</div>
+        
+        
+        
+                                        <!--SEARCH BAR-->
+        
+                        <h4 class="card-title">Find Your Professor </h4>
+                        <br>
+                        
+                        <nav class="navbar navbar-expand-lg navbar-dark bg-success" id="navbarTeachers">
+                          <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
+                            data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false"
+                            aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                          </button>
+                          <a class="navbar-brand" href="#!">By</a>
+                        
+                          <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+                            <ul class="navbar-nav mr-auto mt-2 mt-md-0">
+                              <li class="nav-item active">
+                                <a class="nav-link" href="#!">Professor
+
+                                </a>
+                              </li>
+
+                              
+                            </ul>
+                            
+                            <form class="form-inline my-2 my-lg-0" action="">
+                   
+                              <input type="text" class="form-control" placeholder="Search" aria-label="Recipient's username"
+                                aria-describedby="basic-addon2" id="teacherSearchBar">
+                              
+                                <button class="btn btn-success" type="button" onclick="getProfessorInComments();">Go!</button>
+                                <span id="teacherSearchResult"></span>
+                            </form>
+                            
+                          </div>
+                        </nav>
+                        
+                        <!--resize search bar to 40% width-->
+                        <script>
+                            var searchBar = document.getElementById("navbarTeachers")
+                            searchBar.style.width = "40%"
+                        </script>
+                        
+                        
+                        <!--COMMENT LIST-->
+                        
+                        <ul class="list-group" id="commentList" >
+                          <!--<li class="list-group-item"></li>-->
+                          <!--<li class="list-group-item"></li>-->
+                          <!--<li class="list-group-item"></li>-->
+                          <!--<li class="list-group-item justify-content-between">-->
+                             
+                          <!--  <span class="badge badge-default badge-pill">14</span>-->
+                          <!--</li>-->
+                          <!--<li class="list-group-item"></li>-->
+                          <!--<li class="list-group-item list-group-item-success"></li>-->
+                        </ul>
+                        
+                        <!--styling the list-->
+                        <script>
+                            var list = document.getElementsByClassName("list-group-item")
+                            
+                            var listgroup = document.getElementsByClassName("list-group")[0]
+                            listgroup.style.width = "40%"
+                            
+                            // for(var i=0; i< list.length; i++)
+                            // {
+                            //     list[i].textContent="hello"
+                            // }
+                        </script>
+        
+        
+        <!--GO TO PAGES-->
+        
+        
+        
+        
+        
+        
+
+
+        
+        
+</body>
+</html>

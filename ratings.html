@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Create a Rating</title>
+	
+		<!--css-->
+		
+		      <!--<link rel="stylesheet" href="css/bootstrap.min.css">-->
+              <!-- Material Design Bootstrap -->
+              <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.0/css/bootstrap.min.css" integrity="sha384-SI27wrMjH3ZZ89r4o+fGIJtnzkAnFs3E4qz9DIYioCQ5l9Rd/7UAa8DHcaL8jkWt" crossorigin="anonymous">
+
+              <link rel="stylesheet" href="css/mdb.min.css">
+
+		
+		<!--<link href="https://fonts.googleapis.com/css?family=Indie+Flower&display=swap" rel="stylesheet">-->
+		<link rel="stylesheet" href="css/style.css" type="text/css"/>
+		<link rel="icon" href="Images/favicon.ico" type="image/x-icon">
+		<link rel="stylesheet" href="css/slider.css" type="text/css"/>
+		
+
+		<!--our JS-->
+		
+		<script src="JS/code.js"></script>
+		<!--<script src="JS/components.js"></script>-->
+		
+		<!--boostrap-->
+		
+		<!--<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.0/css/bootstrap.min.css" integrity="sha384-SI27wrMjH3ZZ89r4o+fGIJtnzkAnFs3E4qz9DIYioCQ5l9Rd/7UAa8DHcaL8jkWt" crossorigin="anonymous">-->
+        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.0/js/bootstrap.min.js" integrity="sha384-3qaqj0lc6sV/qpzrc1N5DC6i1VRn/HyX4qdPaiEFbn54VjQBEU341pvjz7Dv3n6P" crossorigin="anonymous"></script>
+
+</head>
+<body>
+	<div class="card text-center">
+                      <div class="card-header">
+                        <ul class="nav nav-tabs card-header-tabs">
+                          <li class="nav-item">
+                            <a class="nav-link active" href="#!">Active</a>
+                          </li>
+                          <li class="nav-item">
+                            <a class="nav-link" href="#!">Link</a>
+                          </li>
+                          <li class="nav-item">
+                            <a class="nav-link disabled" href="#!">Disabled</a>
+                          </li>
+                        </ul>
+                      </div>
+                      <div class="card-body">
+                        
+                        
+                        <!--Look up class/professor-->
+                        
+                        
+                        <h4 class="card-title">Find Your Professor </h4>
+                        <br>
+                        
+                        <nav class="navbar navbar-expand-lg navbar-dark bg-success">
+                          <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
+                            data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false"
+                            aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                          </button>
+                          <a class="navbar-brand" href="#!">By</a>
+                        
+                          <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+                            <ul class="navbar-nav mr-auto mt-2 mt-md-0">
+                              <li class="nav-item active">
+                                <a class="nav-link" href="#!">Professor
+
+                                </a>
+                              </li>
+
+                              
+                            </ul>
+                            
+                            <form class="form-inline my-2 my-lg-0" action="">
+                   
+                              <input type="text" class="form-control" placeholder="Search" aria-label="Recipient's username"
+                                aria-describedby="basic-addon2" id="teacherSearchBar">
+                              
+                                <button class="btn btn-success" type="button" onclick="getProfessor();">Go!</button>
+                                <span id="teacherSearchResult"></span>
+                            </form>
+                            
+                          </div>
+                        </nav>
+                        
+                         <!--SEARCH BAR-->
+                            
+                            
+
+
+                        
+                        <br>
+                        <br>
+                        
+                        <!--sliders-->
+                        
+                        <br>
+                        <h4 class="card-title" id="createARating">Create a Rating</h4>
+                        <br>
+                        
+                    <div class="slidecontainer">
+                        <h3 class = "sliderHeader">Approachability</h3>
+                        <input type="range" min="1" max="10" value="5" class="slider" id="ratingSlider1">
+                        <span class="outputSlider" id="outputSlider1"></span>
+                    </div>
+                    <div class="slidecontainer">
+                        <h3 class = "sliderHeader">Appropriate Work </h3>
+                        <input type="range" min="1" max="10" value="5" class="slider" id="ratingSlider2">
+                        <span class="outputSlider" id="outputSlider2"></span>
+                    </div>
+                    <div class="slidecontainer">
+                        <h3 class = "sliderHeader">Grade Fairness</h3>
+                        <input type="range" min="1" max="10" value="5" class="slider" id="ratingSlider3">
+                        <span class="outputSlider" id="outputSlider3"></span>
+                    </div>
+                    <div class="slidecontainer">
+                        <h3 class = "sliderHeader">Lecture Effectiveness</h3>
+                        <input type="range" min="1" max="10" value="5" class="slider" id="ratingSlider4">
+                        <span class="outputSlider" id="outputSlider4"></span>
+                    </div>
+                    <div class="slidecontainer">
+                        <h3 class = "sliderHeader">Knowledge of Course Material</h3>
+                        <input type="range" min="1" max="10" value="5" class="slider" id="ratingSlider5">
+                        <span class="outputSlider" id="outputSlider5"></span>
+                    </div>
+                    
+                    
+                    <script>
+                        var headers = document.getElementsByClassName("sliderHeader")
+                        var sliders = document.getElementsByClassName("slider")
+                        var outputs = document.getElementsByClassName("outputSlider")
+                        
+                        
+                        
+                        for(let i =0; i < sliders.length; i++)
+                        {
+                        	// sliders[i].addEventListener("load", slidersLoad )
+                            
+                            let header = headers[i]
+                        	let slider = sliders[i]
+                        	let output = outputs[i]
+                            output.innerHTML = slider.value;
+                            
+                            // header.style.display = "block"
+                            // slider.style.display = "block"
+                            // output.style.display = "block"
+                            slider.oninput = function() {
+                              output.innerHTML = slider.value;
+                              
+                            }
+                        }
+                     </script>
+                     <div class="form-group shadow-textarea">
+                          <label for="exampleFormControlTextarea6">Leave a comment!</label>
+                          <textarea class="form-control z-depth-1" name="commentBox" id="exampleFormControlTextarea6" rows="3" placeholder="Write something honest about your professor.."></textarea>
+                            <!--<textarea  id="commentBox"  rows="3" placeholder="Write something honest about your professor.."></textarea>-->
+
+                    </div>
+                        <p class="card-text">All Set!</p>
+                        <span id="USERID"></span>
+                        <span id="errorRating"></span>
+                        <a href="#" class="btn btn-success" onclick="doRating();">Submit Review </a>
+                      </div>
+                    </div>
+                    
+                    <div class="alert alert-success" role="alert" id="successRating">
+                        <strong>Well done!</strong> You successfully created a Rating.
+                    </div>
+                    <script>
+                        var success = document.getElementById("successRating")
+                        success.style.visibility = "hidden"
+                        success.style.display = "none"
+                    </script>
+</body>
+</html>

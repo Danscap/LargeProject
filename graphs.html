@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>View Professors</title>
+	
+		<!--css-->
+		
+		      <!--<link rel="stylesheet" href="css/bootstrap.min.css">-->
+              <!-- Material Design Bootstrap -->
+              <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.0/css/bootstrap.min.css" integrity="sha384-SI27wrMjH3ZZ89r4o+fGIJtnzkAnFs3E4qz9DIYioCQ5l9Rd/7UAa8DHcaL8jkWt" crossorigin="anonymous">
+
+              <link rel="stylesheet" href="css/mdb.min.css">
+
+		
+		<!--<link href="https://fonts.googleapis.com/css?family=Indie+Flower&display=swap" rel="stylesheet">-->
+		<link rel="stylesheet" href="css/style.css" type="text/css"/>
+		<link rel="icon" href="Images/favicon.ico" type="image/x-icon">
+		<link rel="stylesheet" href="css/slider.css" type="text/css"/>
+		
+
+		<!--our JS-->
+		
+		<script src="JS/code.js"></script>
+		<!--<script src="JS/components.js"></script>-->
+		
+		<!--boostrap-->
+		
+		<!--<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.0/css/bootstrap.min.css" integrity="sha384-SI27wrMjH3ZZ89r4o+fGIJtnzkAnFs3E4qz9DIYioCQ5l9Rd/7UAa8DHcaL8jkWt" crossorigin="anonymous">-->
+        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.0/js/bootstrap.min.js" integrity="sha384-3qaqj0lc6sV/qpzrc1N5DC6i1VRn/HyX4qdPaiEFbn54VjQBEU341pvjz7Dv3n6P" crossorigin="anonymous"></script>
+
+</head>
+<body>
+    <br>
+    <br>
+
+        
+        <!--NAVIGATION BAR-->
+        
+        <ul class="nav nav-tabs">
+          <li class="nav-item">
+            <a class="nav-link active" href="teachers.html">Professors</a>
+          </li>
+          
+          <li class="nav-item">
+            <a class="nav-link" href="showTeacherComments.html">Comments</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="graphs.html">Show Ratings</a>
+          </li>
+  <!--<li class="nav-item">-->
+  <!--  <a class="nav-link" href="#!">Link</a>-->
+  <!--</li>-->
+ 
+        </ul>
+        
+        <br>
+        <br>
+        
+        <!--HIDE OR SHOW BUTTONS-->
+        
+        <!--<script>-->
+        <!--    function hideJumbooo()-->
+        <!--    {-->
+        <!--        var show = document.getElementById("jumbooo")-->
+        <!--        show.style.visibility = "hidden"-->
+        <!--        show.style.display = "none"-->
+        <!--    }-->
+            
+        <!--    function showJumbooo()-->
+        <!--    {-->
+        <!--        var show = document.getElementById("jumbooo")-->
+        <!--        show.style.visibility = "visible"-->
+        <!--        show.style.display = "block"-->
+        <!--    }-->
+
+        <!--</script>-->
+        <!--<div class="input-group" id="hideorshowbuttons">-->
+        <!--  <div class="input-group-prepend">-->
+        <!--    <button class="btn btn-outline-success" type="button" onclick="showJumbooo();">Show</button>-->
+        <!--  </div>-->
+          
+        <!--  <div class="input-group-append">-->
+        <!--    <button class="btn btn-outline-success" type="button" onclick="hideJumbooo();">Hide</button>-->
+        <!--  </div>-->
+        <!--</div>-->
+        
+        <script>
+            window.onload = function () {
+                
+                // var search = document.getElementById("teacherSearchBar").value
+//   var jsonPayload = '{"search" : "' + search + '"}';
+   var url = urlBase + '/api/getReviews.' + extension;
+
+    var PAYLOAD;
+
+    // var suggestedResult = document.getElementById("teacherSearchResult")
+   var xhr = new XMLHttpRequest();
+   xhr.open("GET", url, true);
+   xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
+
+   try
+   {
+    //   xhr.send(jsonPayload);
+        xhr.send()
+      xhr.onreadystatechange = function()
+      {
+         if (this.readyState == 4 && this.status == 200)
+         {
+            var jsonObject = JSON.parse(xhr.responseText);
+            //contactId = jsonObject.tableId;
+            if(jsonObject.error.length > 0)
+			   {
+				//   suggestedResult.innerHTML = "No teachers were found.";
+				alert(jsonObject.error)
+				   return;
+			   }
+			   
+			   PAYLOAD = jsonObject;
+			   var quickobj = {}
+			   
+			 //  console.log(jsonObject)
+			  // const obj = Object.assign(quickobj,jsonObject)
+			  // localStorage.setItem("PAYLOAD",quickobj)
+		    	   
+		        var chart = new CanvasJS.Chart("chartContainer", {
+            	animationEnabled: true,
+            	title:{
+            		text: "Teacher Ratings"
+            	},	
+            	axisY: {
+            		title: "Global Rating",
+            		titleFontColor: "#4F81BC",
+            		lineColor: "#4F81BC",
+            		labelFontColor: "#4F81BC",
+            		tickColor: "#4F81BC"
+            	},
+            // 	axisY2: {
+            // 		title: "Personal Rating",
+            // 		titleFontColor: "#C0504E",
+            // 		lineColor: "#C0504E",
+            // 		labelFontColor: "#C0504E",
+            // 		tickColor: "#C0504E"
+            // 	},	
+            	toolTip: {
+            		shared: true
+            	},
+            	legend: {
+            		cursor:"pointer",
+            		itemclick: toggleDataSeries
+            	},
+            	data: [{
+            		type: "column",
+            		name: "Global Weights",
+            		legendText: "Global Weights",
+            		showInLegend: true, 
+            		dataPoints:[
+            			{ label: jsonObject.lastName[0], y: Math.round(jsonObject.teacherOverall[0]) },
+            			{ label: jsonObject.lastName[1], y: Math.round(jsonObject.teacherOverall[1]) },
+            			{ label: jsonObject.lastName[2], y: Math.round(jsonObject.teacherOverall[2]) },
+            			{ label: jsonObject.lastName[3], y: Math.round(jsonObject.teacherOverall[3]) },
+            			{ label: jsonObject.lastName[4], y: Math.round(jsonObject.teacherOverall[4]) },
+            			{ label: jsonObject.lastName[5], y: Math.round(jsonObject.teacherOverall[5]) },
+            			{ label: jsonObject.lastName[6], y: Math.round(jsonObject.teacherOverall[6]) },
+            			{ label: jsonObject.lastName[7], y: Math.round(jsonObject.teacherOverall[7]) },
+            			{ label: jsonObject.lastName[8], y: Math.round(jsonObject.teacherOverall[8]) },
+            			{ label: jsonObject.lastName[9], y: Math.round(jsonObject.teacherOverall[9]) }
+            			
+            		]
+            	},
+            // 	{
+            // 		type: "column",	
+            // 		name: "Personal Weights",
+            // 		legendText: "Personal Weights",
+            // 		axisYType: "secondary",
+            // 		showInLegend: true,
+            // 		dataPoints:[
+            // 			{ label: "Saudi", y: 95.9 },
+            // 			{ label: "Venezuela", y: 2.27 },
+            // 			{ label: "Iran", y: 3.99 },
+            // 			{ label: "Iraq", y: 4.45 },
+            // 			{ label: "Kuwait", y: 2.92 },
+            // 			{ label: "UAE", y: 3.1 }
+            // 		]
+             ]//	}]
+            });	   
+             chart.render();
+            
+            
+            
+            function toggleDataSeries(e) {
+            	if (typeof(e.dataSeries.visible) === "undefined" || e.dataSeries.visible) {
+            		e.dataSeries.visible = false;
+            	}
+            	else {
+            		e.dataSeries.visible = true;
+            	}
+            	chart.render();
+            }
+		    	   
+			   
+            // alert("success")
+    //         var i;
+    //         var result = ""
+    //         for (i = 0; i < jsonObject.firstName.length; i++)
+				// {
+    //             result += jsonObject.firstName[i] + " " + jsonObject.lastName[i] + "\n"
+			 //  }
+			   
+			 //  suggestedResult.innerHTML = result
+			 //  hideOrShow("teacherSearchResult", false)
+			 ////  suggestedResult.style.backgroundColor = "red"
+			 //   var ratingField = document.getElementById("createARating")
+			 //   ratingField.innerHTML = ratingField.innerHTML + " for " + result
+			    
+			 //   tId = jsonObject.teacherId[0];
+			 //   alert(tId)
+         }
+      };
+   }
+   catch(err)
+   {
+    //   document.getElementById("contactSearchResult").innerHTML = err.message;
+        alert(err)
+   }
+            
+            //HERE
+           
+            
+            }
+        </script>
+        
+        <div id="chartContainer" style="height: 370px; max-width: 920px; margin: 0px auto;"></div>
+        <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+        
+        
+        
+        
+        
+        
+        
+        
+                         
+        
+        
+        
+        
+        
+        
+
+
+        
+        
+</body>
+</html>
